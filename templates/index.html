@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+<div class="container pt-5" style="margin-top: 10%">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            <h1>TODO List</h1>
+            <h4>Organize your tasks quickly.</h4>
+            {% if not current_user.is_authenticated: %}
+            <a href="{{ url_for('login') }}" type="button" class="btn btn-dark btn-large rounded-pill shadow-sm mt-5 mb-5 button">Begin</a>
+            {% else %}
+            <a href="{{ url_for('profile') }}" type="button" class="btn btn-dark btn-large rounded-pill shadow-sm mt-5 mb-5 button">Begin</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+<div class="container pt-5" style="margin-top: 10%">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            <h1>Create Your Plan</h1>
+<form action="{{ url_for('create', plan=plan, count=count) }}" method="post" class="form" role="form">
+                {{ form.hidden_tag() }}
+    <div class="form-group required text-left">{{ form.option.label(style='color: #A3A3A3;') }} {{ form.option(class='form-control') }}</div>
+    {{ form.submit(class='btn btn-dark btn-large rounded-pill shadow-sm mt-5 mb-2 button') }}
+</form>
+        </div>
+    </div>
+</div>

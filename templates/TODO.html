@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+<div class="container pt-5" style="margin-top: 10%">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            {% if current_user.plan_day_or_month == '' %}
+            <h1>Choose a Plan</h1>
+            <a href="{{ url_for('choose', plan='day') }}" type="button" class="a-todo btn btn-dark btn-large shadow-sm m-5 button">Plan for the Day</a>
+            <a href="{{ url_for('choose', plan='month') }}" type="button" class="a-todo btn btn-dark btn-large shadow-sm m-5 button">Plan for the Month</a>
+            {% else: %}
+            <h1>Complete an already started plan</h1>
+            <a href="{{ url_for('profile')}}" type="button" class="a-todo btn btn-dark btn-large shadow-sm m-5 button">Back</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

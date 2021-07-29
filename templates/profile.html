@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<div class="container pt-5" style="margin-top: 10%">
+    <div class="row text-center">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            <h1>Your Plan</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <h4>{{ message }}</h4>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            {% if current_user.plan_day_or_month != '' %}
+            <div class="container">
+                <div class="row">
+                    <h4>Plan for the {{ current_user.plan.title() }}</h4>
+                    <div class="col-lg-12 col-md-10 mx-auto border rounded p-3" style="border-color: rgba(229, 197, 255, 1) !important">
+                        {% for i in range(count) %}
+                        <p class="p-profile text-left">{{ i + 1 }}. {{ list_options[i] }} </p>
+                        {% endfor %}
+                        <div class="text-right">
+                        <a href="{{ url_for('done') }}" type="button" id='done-button' class="btn btn-dark btn-large rounded-pill shadow-sm m-2 button">Done</a>
+                        <a href="{{ url_for('delete') }}" type="button" id='danger-button' class="btn btn-dark btn-large rounded-pill shadow-sm m-2 button">Delete</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            <a href="{{ url_for('todo') }}" type="button" class="btn btn-dark btn-large rounded-pill shadow-sm mt-5 mb-5 button">Create New Plan</a>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}

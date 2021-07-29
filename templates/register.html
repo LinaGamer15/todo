@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+<div class="container pt-5" style="margin-top: 10%">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto text-center">
+            <h1>Register</h1>
+            <form action="{{ url_for('register') }}" method="post" class="form" role="form">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <h4>{{ message }}</h4>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {{ form.hidden_tag() }}
+                <div class="form-group required text-left">{{ form.name.label(style='color: #A3A3A3;') }} {{ form.name(class='form-control') }}</div>
+                <div class="form-group required text-left">{{ form.email.label(style='color: #A3A3A3;') }} {{ form.email(class='form-control') }}</div>
+                <div class="form-group required text-left">{{ form.login.label(style='color: #A3A3A3;') }} {{ form.login(class='form-control') }}</div>
+                <div class="form-group required text-left">{{ form.password.label(style='color: #A3A3A3;') }} {{ form.password(class='form-control') }}</div>
+                <div class="form-group required text-left">{{ form.repeat_password.label(style='color: #A3A3A3;') }} {{ form.repeat_password(class='form-control') }}</div>
+                {{ form.submit(class='btn btn-dark btn-large rounded-pill shadow-sm mt-5 mb-2 button') }}
+            </form>
+            <a href="{{ url_for('login') }}" class="a-reg">Sign In</a>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
