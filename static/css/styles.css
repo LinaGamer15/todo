@@ -38,6 +38,10 @@ color: #e5c5ff !important;
 border-color: #e5c5ff !important
 }
 
+.containers {
+margin-top: 10% !important;
+}
+
 .p-profile {
 font-weight: 400 !important;
 font-size: 1.5rem;
