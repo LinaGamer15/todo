@@ -8,11 +8,12 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SJFIESDFJ980AHAFIASFJSAL9fs0fjsfsk'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1', 'sqlite:///todo.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
