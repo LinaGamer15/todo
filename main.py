@@ -171,6 +171,7 @@ def create(plan, count):
         if plan == 'day' or plan == 'month':
             if user.plan_day_or_month == '':
                 user.plan_day_or_month = options
+                options = ''
                 user.time_start = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
                 db.session.commit()
                 if plan == 'day':
@@ -181,7 +182,6 @@ def create(plan, count):
                     db.session.commit()
             else:
                 flash(f'You already have a plan')
-            options = ''
         return redirect(url_for('profile'))
     return render_template('create_plan.html', plan=plan, count=count, form=form, current_user=current_user)
 
