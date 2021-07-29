@@ -171,9 +171,9 @@ def create(plan, count):
         if plan == 'day' or plan == 'month':
             if user.plan_day_or_month == '':
                 user.plan_day_or_month = options
-                options = ''
                 user.time_start = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
                 db.session.commit()
+                options = ''
                 if plan == 'day':
                     user.time_final = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
                     db.session.commit()
